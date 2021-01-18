@@ -35,8 +35,8 @@ SPC = "space"
 # My short name apps
 TERM = "kitty"
 EDITOR = "nvim"
-BRS = "brave"
-FileManager = "pcmanfm --no-desktop"
+BRS = "chromium"
+FileManager = "pcmanfm-qt"
 
 keys = [
     # QTILE LAYOUT KEYS
@@ -186,11 +186,11 @@ keys = [
 
 def init_group_name():
     group_names = [
-        ("", {"layout": "bsp"}),
-        ("", {"layout": "max"}),
-        ("", {"layout": "bsp"}),
-        ("", {"layout": "floating"}),
-        ("", {"layout": "bsp"}),
+        ("", {"layout": "tile"}),
+        ("", {"layout": "tile"}),
+        ("", {"layout": "monadtall"}),
+        ("", {"layout": "monadwide"}),
+        ("", {"layout": "max"}),
         ("", {"layout": "floating"}),
         ("", {"layout": "floating"}),
     ]
@@ -217,45 +217,45 @@ layout_theme = {
 
 ##### THE LAYOUTS #####
 layouts = [
-    # layout.MonadWide(**layout_theme),
-    layout.Bsp(**layout_theme),
+    layout.MonadWide(**layout_theme),
+    # layout.Bsp(**layout_theme),
     # layout.Stack(stacks=2, **layout_theme),
     # layout.Columns(**layout_theme),
     # layout.RatioTile(**layout_theme),
     # layout.VerticalTile(**layout_theme),
-    # layout.Matrix(**layout_theme),
+    layout.Matrix(**layout_theme),
     # layout.Zoomy(**layout_theme),
-    # layout.MonadTall(**layout_theme),
+    layout.MonadTall(**layout_theme),
     layout.Max(**layout_theme),
     layout.Tile(shift_windows=True, **layout_theme),
     layout.Stack(num_stacks=2),
-    layout.TreeTab(
-        font="Ubuntu",
-        fontsize=14,
-        sections=["FIRST", "SECOND"],
-        section_fontsize=11,
-        bg_color="141414",
-        active_bg="90C435",
-        active_fg="000000",
-        inactive_bg="384323",
-        inactive_fg="a0a0a0",
-        padding_y=5,
-        section_top=10,
-        panel_width=320,
-    ),
+    # layout.TreeTab(
+    #    font="Ubuntu",
+    #    fontsize=14,
+    #    sections=["FIRST", "SECOND"],
+    #    section_fontsize=11,
+    #    bg_color="141414",
+    #    active_bg="90C435",
+    #    active_fg="000000",
+    #    inactive_bg="384323",
+    #    inactive_fg="a0a0a0",
+    #    padding_y=5,
+    #    section_top=10,
+    #    panel_width=320,
+    # ),
     layout.Floating(**layout_theme),
 ]
 
 ##### COLORS #####
 colors = [
     ["#282a36", "#282a36"],  # panel background
-    ["#434758", "#434758"],  # background for current screen tab
+    ["#24262F", "#24262F"],  # background for current screen tab
     ["#ffffff", "#ffffff"],  # font color for group names
-    ["#ff5555", "#ff5555"],  # border line color for current tab
+    ["#BD93F9", "#BD93F9"],  # border line color for current tab
     ["#8d62a9", "#8d62a9"],  # border line color for other tab and odd widgets
-    ["#668bd7", "#668bd7"],  # color for the even widgets
-    ["#e1acff", "#e1acff"],
-]  # window name
+    ["#44475A", "#44475A"],  # color for the even widgets
+    ["#e1acff", "#e1acff"],  # window name
+]
 
 ##### PROMPT #####
 # prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
@@ -269,7 +269,7 @@ extension_defaults = widget_defaults.copy()
 
 def init_widgets_list():
     widgets_list = [
-        widget.CurrentLayoutIcon(scale=0.7),
+        widget.CurrentLayoutIcon(scale=0.79),
         widget.Sep(linewidth=0, padding=6,
                    foreground=colors[2], background=colors[0]),
         widget.GroupBox(highlight_method="block", inactive="999999"),
@@ -307,14 +307,16 @@ def init_screens():
             top=bar.Bar(
                 widgets=init_widgets_screen1(),
                 size=30,
-                background=["#282a36", "#282a36"],
+                background=['#282a36'],
+                opacity=0.88
             )
         ),
         Screen(
             bottom=bar.Bar(
                 widgets=init_widgets_screen2(),
                 size=35,
-                background=["#282a36", "#282a36"],
+                background=["#282a36"],
+                opacity=0.8
             )
         ),
     ]

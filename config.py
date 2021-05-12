@@ -249,12 +249,12 @@ layouts = [
 ##### COLORS #####
 colors = [
     ["#282a36", "#282a36"],  # panel background
-    ["#24262F", "#24262F"],  # background for current screen tab
-    ["#ffffff", "#ffffff"],  # font color for group names
-    ["#BD93F9", "#BD93F9"],  # border line color for current tab
-    ["#8d62a9", "#8d62a9"],  # border line color for other tab and odd widgets
+    ["#44475a", "#44475a"],  # background for current screen tab
+    ["#f8f8f2", "#f8f8f2"],  # font color for group names
+    ["#44475a", "#44475a"],  # border line color for current tab
+    ["#282a36", "#282a36"],  # border line color for other tab and odd widgets
     ["#44475A", "#44475A"],  # color for the even widgets
-    ["#e1acff", "#e1acff"],  # window name
+    ["#6272a4", "#6272a4"],  # window name
 ]
 
 ##### PROMPT #####
